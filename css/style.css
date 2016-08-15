@@ -11,3 +11,11 @@ h1 {
     text-align: center;
     text-shadow: 1px 1px 0px #333;
 }
+
+/* Body Style */
+
+#main {
+    height: 550px;
+    margin: 0 auto;
+    background: #1a8fb9;
+}
