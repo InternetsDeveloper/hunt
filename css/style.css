@@ -17,5 +17,6 @@ h1 {
 #main {
     height: 550px;
     margin: 0 auto;
+    box-shadow: 3px 3px 1px #333;
     background: #1a8fb9;
 }
