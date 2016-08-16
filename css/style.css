@@ -11,6 +11,17 @@ h1 {
     text-align: center;
     text-shadow: 1px 1px 0px #333;
 }
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #0f0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    text-align: center;
+    text-shadow: 1px 1px 0px #333;
+}
 
 /* Body Style */
 
@@ -21,4 +32,8 @@ h1 {
     background: #1a8fb9;
     background-image: url('../images/background.png');
     background-size: cover;
+}
+.stats {
+    text-align: center;
+    margin-top: 1em;
 }
