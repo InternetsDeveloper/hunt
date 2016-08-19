@@ -14,5 +14,5 @@ $(document).ready(function () {
         opacity: 1
     }, 2300);
 
-
-})
+    //End of Doc Ready
+});
