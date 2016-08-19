@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    //Initialize Music
+    //--==== Initialize Music ====--
     soundManager.createSound({
         url: 'sounds/music.mp3'
     }).play();
 
-    //Initialize Start
+    //--==== Initialize Start ====--
     $('#main').animate({
         opacity: 0
     }, 0).css({
@@ -14,5 +14,5 @@ $(document).ready(function () {
         opacity: 1
     }, 2300);
 
-    //End of Doc Ready
+    //--====== End of Doc Ready ======--
 });
