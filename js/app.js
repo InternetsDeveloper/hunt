@@ -10,6 +10,10 @@ $(document).ready(function () {
             var lvlParams = [[3, 5],
                             [4, 3],
                             [3, 1]];
+            var pOne = 'Player One';
+            var pTwo = 'Player Two';
+            var currPlayer = pOne;
+
 
             //--==== Initialize Start ====--
             $('#main').animate({
