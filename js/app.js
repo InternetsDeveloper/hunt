@@ -7,9 +7,12 @@ $(document).ready(function () {
 
             //--==== VAR sets ====--
 
+            //-- Level --
+            var currLvl = 0;
             var lvlParams = [[3, 5],
                             [4, 3],
                             [3, 1]];
+            //-- PLayer --
             var pOne = 'Player One';
             var pTwo = 'Player Two';
             var currPlayer = pOne;
