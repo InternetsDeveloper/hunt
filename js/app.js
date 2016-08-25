@@ -13,10 +13,12 @@ $(document).ready(function () {
                             [4, 3],
                             [3, 1]];
             //-- PLayer --
-            var pOne = 'Player One';
-            var pTwo = 'Player Two';
-            var currPlayer = pOne;
+            var plrOne = 'Player One';
+            var plrTwo = 'Player Two';
+            var currPlayer = plrOne;
 
+            //-- Kims --
+            var cryKim = '<img class="kim" src="images/kim-crying.png" />';
 
             //--==== Initialize Start ====--
             $('#main').animate({
