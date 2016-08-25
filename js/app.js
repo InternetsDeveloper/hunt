@@ -20,6 +20,14 @@ $(document).ready(function () {
             //-- The Kims --
             var cryKim = '<img class="kim" src="images/kim-crying.png" />';
             var numOfKims = 0;
+            var flyKim1 = ({
+                "left": "40%",
+                "top": "-20%"
+            });
+            var flyKim2 = ({
+                "left": "0%",
+                "right": "-20%"
+            });
 
             //--==== Initialize Start ====--
             $('#main').animate({
