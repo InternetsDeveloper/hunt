@@ -17,8 +17,9 @@ $(document).ready(function () {
             var plrTwo = 'Player Two';
             var currPlayer = plrOne;
 
-            //-- Kims --
+            //-- The Kims --
             var cryKim = '<img class="kim" src="images/kim-crying.png" />';
+            var numOfKims = 0;
 
             //--==== Initialize Start ====--
             $('#main').animate({
