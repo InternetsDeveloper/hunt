@@ -53,6 +53,20 @@ $(document).ready(function () {
             wave(lvlParams[currentLevel][0], lvlParams[currentLevel[1]);
             }, 2300);
 
+        //--==== Initialize Play Sound ====--
+
+        function startPlay() {
+            soundManager.setup({
+                url: 'js/soundmanager/script/swf',
+                flashVersion: 9,
+                onready: function () {
+                    var gameSound = soundManager.createSound({
+                        'id': 'aSound',
+                        'multiShotEvents': true
+                    });
+                }
+            });
+        };
 
         //--==== Kim Flight Patterns / Animation Seq ====--
 
@@ -216,7 +230,7 @@ $(document).ready(function () {
             //--== end of animateKim func ==--
         }
 
-    }
+    });
 
-    //--====== End of Doc Ready ======--
+//--====== End of Doc Ready ======--
 });
