@@ -239,7 +239,7 @@ function lvlComplete(numOfKims, bullets) {
 
     console.log(currPlayer + " is the Current Shooter")
     if (currLvl < lvlParams.length) {
-        $("#main").html('<a class="button" id="lvlUp">OH MY GOD! LIKE, NEXT LEVEL!</a>');
+        $("#main").html('<a class="button" id="lvlUp">FOR REALS! NEXT LEVEL!</a>');
         $("#main").append('<a class="button whatevs" id="whatevs">Whatevs..I\'m out</a>');
         $("#main a#lvlUp").on("click", function () {
             console.log("Like, Start the Next Level");
