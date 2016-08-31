@@ -292,7 +292,20 @@ function lvlComplete(numOfKims, bullets) {
             currPlayer = plrTwo;
             console.log("You should hurry before Yeezy gets home:" + currPlayer);
 
+            //--==== Player 2 Start Game ====--
+            $("#main a#plr-2").on("click", function () {
+                console.log("START");
+                $('.shots').html("");
+                $('.kims').html("");
+                $("#main").html("");
+                $(".score").html("0");
+                kimScore = 0;
+                setTimeout(function () {
+                    wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
+                }, 1000);
+            });
         }
+    }
 
-        //--====== End of Doc Ready ======--
-    });
+    //--====== End of Doc Ready ======--
+});
