@@ -57,3 +57,12 @@ svg.bullet-svg {
     fill: #0f0;
     width: auto;
 }
+
+/* Button Style */
+
+.button {
+    display: block;
+    max-width: 50%;
+    box-shadow: rgba(50, 50, 50 0.4);
+    margin: 10em auto 0em;
+}
