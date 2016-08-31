@@ -270,7 +270,7 @@ function lvlComplete(numOfKims, bullets) {
             //--==== Play Button ====--
             $("#main").append('<a class="button whatevs" id="wait">Omg! Like, hold on! I need to play</a>');
 
-            //--==== Continue Playing ====--
+            //--==== Initialize Continue Playing ====--
             $("#content a#wait").on("click", function () {
                 console.log("Like, Start Next Level!");
                 $('.shots').html("");
@@ -281,8 +281,18 @@ function lvlComplete(numOfKims, bullets) {
                 }, 1000);
             });
         });
-    }
-}
+    } else {
+        //--==== Initialize Player 2 ====--
+        if (currPlayer == plrOne) {
+            $("#main").html('<a class="button" id="plr-2">Player Two - totally pay attention .. you\'re up!</a>');
+            plrOneScore = kimScore;
 
-//--====== End of Doc Ready ======--
-});
+            //--==== Score Reset - Player 2 / ====--
+            currLvl = 0;
+            currPlayer = plrTwo;
+            console.log("You should hurry before Yeezy gets home:" + currPlayer);
+
+        }
+
+        //--====== End of Doc Ready ======--
+    });
