@@ -70,3 +70,8 @@ svg.bullet-svg {
     background: #FF2C10;
     margin-top: 1em;
 }
+.whatevs:hover,
+.whatevs:active,
+.whatevs:focus {
+    background: #A51300;
+}
