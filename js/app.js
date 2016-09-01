@@ -304,8 +304,14 @@ function lvlComplete(numOfKims, bullets) {
                     wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
                 }, 1000);
             });
+        } else {
+
+            //--==== Show Scores ====--
+            $("#main").html("<h1>The Winner is..</h1>");
+            $("#main").append("<h3>Player One: " + plrOneScore + "</h3>");
+            $("#main").append("<h3>Player Two: " + kimScore + "</h3>");
         }
     }
-
-    //--====== End of Doc Ready ======--
+}
+//--====== End of Doc Ready ======--
 });
