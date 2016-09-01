@@ -50,7 +50,7 @@ $(document).ready(function () {
     }, 2300);
 
     timeoutSet(function () {
-        wave(lvlParams[currentLevel][0], lvlParams[currentLevel][1]);
+        wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
     }, 2300);
 
     //--==== Initialize Play Sound ====--
@@ -231,6 +231,17 @@ $(document).ready(function () {
     }
 
 });
+
+//--==== Kill Crying Kim ====--
+function killKim() {
+    //-- Kim Falls on click --
+    $(".kim").one("click", function () {
+        $(this).animate().stop(true, false).delay(600).animate({
+            "top": "110%"
+        }, 1000, "swing");
+    })
+}
+
 //--==== Add / Subtract Bullets ====--
 function hitsBullets(totesKims, numBullets) {
     var totesBullets = totesKims + numBullets
@@ -262,11 +273,11 @@ function hitsBullets(totesKims, numBullets) {
 
         if (bullets === 0) {
             $("#main").off("click");
-            $(".kims").off("click");
+            $(".kim").off("click");
             console.log("Like, you are totally out of bullets");
         }
 
-    })
+    });
 }
 
 
@@ -301,6 +312,23 @@ function score(totesKims, numBullets) {
         }
     });
 }
+
+function wave(totesKims, numBullets) {
+
+    for (i = 0; i < totesKims; i++) {
+        var newKim = $(singleKim);
+        $("#main").append(newKim);
+        animKim(newKim);
+    }
+    lvlTimer = setTimeout(function () {
+        lvlComplete(totesKim, numBullets);
+    }, 9000);
+
+    score(totesKim, numBullets);
+    hitsBullets(totesKims, numBullets);
+    killKim();
+}
+
 
 //--==== Game Winning Color ====--
 function random_hsl_color() {
