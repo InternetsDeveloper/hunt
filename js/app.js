@@ -263,7 +263,7 @@ function hitsBullets(totesKims, numBullets) {
         if (bullets === 0) {
             $("#main").off("click");
             $(".kims").off("click");
-            console.log("You ain't gots no bullets");
+            console.log("Like, you are totally out of bullets");
         }
 
     })
