@@ -232,6 +232,38 @@ $(document).ready(function () {
 
 });
 
+//--==== Initialize Scoring ====--
+function score(totesKims, numBullets) {
+    var totesBullets = totesKims + numBullets;
+    var bulletsLeft = totesBullets;
+    numOfKims = 0;
+
+    //--==== Quack on click ====--
+    $(".kims").one("click", function () {
+        soundManager.createSound({
+            url: 'sounds/quack.mp3'
+        }).play();
+        kimScore += 500;
+        numOfKims++;
+
+        //-- numOfKims = (kimScore / 500); --
+        $(".score").html(duckScore);
+
+        var greenDucks = $("svg.duck-svg");
+        for (i = 0; i < numOfKims; i++) {
+            $(greenDucks[i]).css({
+                "fill": "#0f0"
+            });
+        }
+
+        //--==== CheckScore / Clear Timer ====--     
+        if (numOfKims == totesKims) {
+            clearTimeout(lvlTimer);
+            lvlComplete(totesKims, numOfKims);
+        }
+    });
+}
+
 //--==== Game Winning Color ====--
 function random_hsl_color() {
     var hsl = "hsl(" + (Math.random() * 360) + " , 80%, 50%)";
