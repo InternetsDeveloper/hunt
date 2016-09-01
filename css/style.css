@@ -75,3 +75,11 @@ svg.bullet-svg {
 .whatevs:focus {
     background: #A51300;
 }
+#plr-2 {
+    background: #F0961E;
+}
+#plr-2:hover,
+#plr-2:active,
+#plr-2:focus {
+    background: #B36C0D;
+}
