@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     function startPlay() {
         soundManager.setup({
-            url: 'js/soundmanager/script/swf',
+            url: 'js/soundmanager/swf/soundmanager2.swf',
             flashVersion: 9,
             onready: function () {
                 var gameSound = soundManager.createSound({
@@ -74,158 +74,158 @@ $(document).ready(function () {
         var kimAnimate = (Math.floor(Math.random() * 10));
         switch (kimAnimate) {
 
-        case 0:
-            newKim.animate({
-                "left": "85%",
-                "top": "50%"
-            }, 2000, "swing").delay(700).animate({
-                "left": "50%",
-                "top": "20%"
-            }, 1000, "swing").delay(500).animate({
-                "top": "50%",
-                "left": "10%"
-            }, 1250, "swing").delay(600).animate(flyKim1, 400, "swing");
-            break;
+            case 0:
+                newKim.animate({
+                    "left": "85%",
+                    "top": "50%"
+                }, 2000, "swing").delay(700).animate({
+                    "left": "50%",
+                    "top": "20%"
+                }, 1000, "swing").delay(500).animate({
+                    "top": "50%",
+                    "left": "10%"
+                }, 1250, "swing").delay(600).animate(flyKim1, 400, "swing");
+                break;
 
-        case 1:
-            newKim.animate({
-                "left": "35%",
-                "top": "30%"
-            }, 1500, "swing").delay(650).animate({
-                "left": "20%",
-                "top": "35%"
-            }, 950, "swing").delay(900).animate({
-                "left": "70%",
-                "top": "67%"
-            }, 1000, "swing").delay(600).animate(flyKim1, 400, "swing");
-            break;
+            case 1:
+                newKim.animate({
+                    "left": "35%",
+                    "top": "30%"
+                }, 1500, "swing").delay(650).animate({
+                    "left": "20%",
+                    "top": "35%"
+                }, 950, "swing").delay(900).animate({
+                    "left": "70%",
+                    "top": "67%"
+                }, 1000, "swing").delay(600).animate(flyKim1, 400, "swing");
+                break;
 
-        case 2:
-            newKim.animate({
-                "left": "25%",
-                "top": "60%"
-            }, 1500, "swing").delay(500).animate({
-                "left": "20%",
-                "top": "35%"
-            }, 800, "swing").delay(900).animate({
-                "left": "70%",
-                "top": "67%"
-            }, 1000, "swing").delay(300).animate(flyKim1, 400, "swing");
-            break;
+            case 2:
+                newKim.animate({
+                    "left": "25%",
+                    "top": "60%"
+                }, 1500, "swing").delay(500).animate({
+                    "left": "20%",
+                    "top": "35%"
+                }, 800, "swing").delay(900).animate({
+                    "left": "70%",
+                    "top": "67%"
+                }, 1000, "swing").delay(300).animate(flyKim1, 400, "swing");
+                break;
 
-        case 3:
-            newKim.animate({
-                "left": "25%",
-                "top": "40%"
-            }, 1500, "swing").delay(700).animate({
-                "left": "70%",
-                "top": "27%"
-            }, 1500, "swing").delay(500).animate({
-                "top": "36%",
-                "left": "10%"
-            }, 1250, "swing").delay(600).animate({
-                "left": "50%",
-                "top": "15%"
-            }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 3:
+                newKim.animate({
+                    "left": "25%",
+                    "top": "40%"
+                }, 1500, "swing").delay(700).animate({
+                    "left": "70%",
+                    "top": "27%"
+                }, 1500, "swing").delay(500).animate({
+                    "top": "36%",
+                    "left": "10%"
+                }, 1250, "swing").delay(600).animate({
+                    "left": "50%",
+                    "top": "15%"
+                }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-        case 4:
-            newKim.animate({
-                "left": "0%",
-                "top": "20%"
-            }, 1500, "swing").delay(650).animate({
-                "left": "60%",
-                "top": "40%"
-            }, 1450, "swing").delay(900).animate({
-                "left": "60%",
-                "top": "80%"
-            }, 1000, "swing").delay(600).animate({
-                "left": "80%",
-                "top": "5%"
-            }, 1000, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 4:
+                newKim.animate({
+                    "left": "0%",
+                    "top": "20%"
+                }, 1500, "swing").delay(650).animate({
+                    "left": "60%",
+                    "top": "40%"
+                }, 1450, "swing").delay(900).animate({
+                    "left": "60%",
+                    "top": "80%"
+                }, 1000, "swing").delay(600).animate({
+                    "left": "80%",
+                    "top": "5%"
+                }, 1000, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-        case 5:
-            newKim.animate({
-                "left": "35%",
-                "top": "60%"
-            }, 1500, "swing").delay(500).animate({
-                "left": "20%",
-                "top": "35%"
-            }, 800, "swing").delay(900).animate({
-                "left": "10%",
-                "top": "57%"
-            }, 1000, "swing").delay(300).animate({
-                "left": "20%",
-                "top": "15%"
-            }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 5:
+                newKim.animate({
+                    "left": "35%",
+                    "top": "60%"
+                }, 1500, "swing").delay(500).animate({
+                    "left": "20%",
+                    "top": "35%"
+                }, 800, "swing").delay(900).animate({
+                    "left": "10%",
+                    "top": "57%"
+                }, 1000, "swing").delay(300).animate({
+                    "left": "20%",
+                    "top": "15%"
+                }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-        case 6:
-            newKim.animate({
-                "left": "30%",
-                "top": "10%"
-            }, 1700, "swing").delay(1000).animate({
-                "left": "30%",
-                "top": "66%"
-            }, 1000, "swing").delay(500).animate({
-                "top": "63%",
-                "left": "1%"
-            }, 1250, "swing").delay(600).animate({
-                "left": "29%",
-                "top": "45%"
-            }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 6:
+                newKim.animate({
+                    "left": "30%",
+                    "top": "10%"
+                }, 1700, "swing").delay(1000).animate({
+                    "left": "30%",
+                    "top": "66%"
+                }, 1000, "swing").delay(500).animate({
+                    "top": "63%",
+                    "left": "1%"
+                }, 1250, "swing").delay(600).animate({
+                    "left": "29%",
+                    "top": "45%"
+                }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-        case 7:
-            newKim.animate({
-                "left": "25%",
-                "top": "33%"
-            }, 1500, "swing").delay(700).animate({
-                "left": "70%",
-                "top": "27%"
-            }, 1500, "swing").delay(500).animate({
-                "top": "36%",
-                "left": "10%"
-            }, 1250, "swing").delay(600).animate({
-                "left": "50%",
-                "top": "15%"
-            }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 7:
+                newKim.animate({
+                    "left": "25%",
+                    "top": "33%"
+                }, 1500, "swing").delay(700).animate({
+                    "left": "70%",
+                    "top": "27%"
+                }, 1500, "swing").delay(500).animate({
+                    "top": "36%",
+                    "left": "10%"
+                }, 1250, "swing").delay(600).animate({
+                    "left": "50%",
+                    "top": "15%"
+                }, 1500, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-        case 8:
-            newKim.animate({
-                "left": "0%",
-                "top": "25%"
-            }, 1500, "swing").delay(650).animate({
-                "left": "60%",
-                "top": "40%"
-            }, 1450, "swing").delay(900).animate({
-                "left": "60%",
-                "top": "80%"
-            }, 1000, "swing").delay(600).animate({
-                "left": "80%",
-                "top": "47%"
-            }, 1000, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 8:
+                newKim.animate({
+                    "left": "0%",
+                    "top": "25%"
+                }, 1500, "swing").delay(650).animate({
+                    "left": "60%",
+                    "top": "40%"
+                }, 1450, "swing").delay(900).animate({
+                    "left": "60%",
+                    "top": "80%"
+                }, 1000, "swing").delay(600).animate({
+                    "left": "80%",
+                    "top": "47%"
+                }, 1000, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-        case 9:
-            newKim.animate({
-                "left": "35%",
-                "top": "80%"
-            }, 1500, "swing").delay(500).animate({
-                "left": "20%",
-                "top": "35%"
-            }, 800, "swing").delay(900).animate({
-                "left": "15%",
-                "top": "80%"
-            }, 1500, "swing").delay(300).animate({
-                "left": "60%",
-                "top": "23%"
-            }, 1000, "swing").delay(750).animate(flyKim2, 400, "swing");
-            break;
+            case 9:
+                newKim.animate({
+                    "left": "35%",
+                    "top": "80%"
+                }, 1500, "swing").delay(500).animate({
+                    "left": "20%",
+                    "top": "35%"
+                }, 800, "swing").delay(900).animate({
+                    "left": "15%",
+                    "top": "80%"
+                }, 1500, "swing").delay(300).animate({
+                    "left": "60%",
+                    "top": "23%"
+                }, 1000, "swing").delay(750).animate(flyKim2, 400, "swing");
+                break;
 
-            //-- end of Switch --
+                //-- end of Switch --
         }
         //--== end of animateKim func ==--
     }
