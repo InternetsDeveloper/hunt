@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     function startPlay() {
         soundManager.setup({
-            url: 'js/soundmanager/swf/soundmanager2.swf',
+            url: 'js/soundmanager/script/swf',
             flashVersion: 9,
             onready: function () {
                 var gameSound = soundManager.createSound({
@@ -66,7 +66,7 @@ $(document).ready(function () {
                 });
             }
         });
-    }
+    };
 
     //--==== Kim Flight Patterns / Animation Seq ====--
 
@@ -230,230 +230,228 @@ $(document).ready(function () {
         //--== end of animateKim func ==--
     }
 
-});
-
-//--==== Kill Crying Kim ====--
-function killKim() {
-    //-- Kim Falls on click --
-    $(".kim").one("click", function () {
-        $(this).animate().stop(true, false).delay(600).animate({
-            "top": "110%"
-        }, 1000, "swing");
-    });
-}
-
-//--==== Add / Subtract Bullets ====--
-function hitsBullets(totesKims, numBullets) {
-    var totesBullets = totesKims + numBullets;
-    bullets = totesBullets;
-    console.log("Bullets left inside hitsBullets", bullets);
-
-    //-- Number of Ducks --
-    for (i = 0; i < totesKims; i++) {
-        $('.kims').append(duckSVG);
-    }
-
-    //-- Number of Bullets --
-    for (i = 0; i < bullets; i++) {
-        $('.shots').append(bulletSVG);
-    }
-
-    //-- Calculating Shots Left --
-    $("#main").off("click");
-    $("#main").on("click", function () {
-
-        bullets--;
-
-        var bulletsLeft = $("svg.bullet-svg");
-        for (i = totesBullets; i > bullets; i--) {
-            $(bulletsLeft[i - 1]).css({
-                "fill": "#333"
-            });
-        }
-
-        if (bullets === 0) {
-            $("#main").off("click");
-            $(".kim").off("click");
-            console.log("Like, you are totally out of bullets");
-        }
-
-    });
-}
-
-
-//--==== Initialize Scoring ====--
-function score(totesKims, numBullets) {
-    var totesBullets = totesKims + numBullets;
-    var bulletsLeft = totesBullets;
-    numOfKims = 0;
-
-    //--==== Quack on click ====--
-    $(".kims").one("click", function () {
-        soundManager.createSound({
-            url: 'sounds/quack.mp3'
-        }).play();
-        kimScore += 500;
-        numOfKims++;
-
-        //-- numOfKims = (kimScore / 500); --
-        $(".score").html(duckScore);
-
-        var greenDucks = $("svg.duck-svg");
-        for (i = 0; i < numOfKims; i++) {
-            $(greenDucks[i]).css({
-                "fill": "#0f0"
-            });
-        }
-
-        //--==== CheckScore / Clear Timer ====--     
-        if (numOfKims == totesKims) {
-            clearTimeout(lvlTimer);
-            lvlComplete(totesKims, numOfKims);
-        }
-    });
-}
-
-function wave(totesKims, numBullets) {
-
-    for (i = 0; i < totesKims; i++) {
-        var newKim = $(singleKim);
-        $("#main").append(newKim);
-        animKim(newKim);
-    }
-    lvlTimer = setTimeout(function () {
-        lvlComplete(totesKim, numBullets);
-    }, 9000);
-
-    score(totesKim, numBullets);
-    hitsBullets(totesKims, numBullets);
-    killKim();
-}
-
-
-//--==== Game Winning Color ====--
-function random_hsl_color() {
-    var hsl = "hsl(" + (Math.random() * 360) + " , 80%, 50%)";
-    return hsl;
-}
-
-//--==== Level Complete Message / Options ====--
-
-function lvlComplete(numOfKims, bullets) {
-    currLvl++;
-
-    console.log(currPlayer + " is the Current Shooter");
-    if (currLvl < lvlParams.length) {
-        $("#main").html('<a class="button" id="lvlUp">FOR REALS! NEXT LEVEL!</a>');
-        $("#main").append('<a class="button whatevs" id="whatevs">Whatevs..I\'m out</a>');
-        $("#main a#lvlUp").on("click", function () {
-            console.log("Like, Start the Next Level");
-            $('.shots').html("");
-            $('.kims').html("");
-            $("#main").html("");
-            setTimeout(function () {
-                wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
-            }, 1000);
+    //--==== Kill Crying Kim ====--
+    function killKim() {
+        //-- Kim Falls on click --
+        $(".kim").one("click", function () {
+            $(this).animate().stop(true, false).delay(600).animate({
+                "top": "110%"
+            }, 1000, "swing");
         });
+    }
 
-        //--==== Quit Message / Button ====--
-        $("#main a#whatevs").on("click", function () {
-            $("#main").html('<h3 class="really">OMG! Like, really?</h3>');
-            $("#main").append('<a href="" class="button whatevs" id="cantEven">I can\'t even</a>');
+    //--==== Add / Subtract Bullets ====--
+    function hitsBullets(totesKims, numBullets) {
+        var totesBullets = totesKims + numBullets;
+        bullets = totesBullets;
+        console.log("Bullets left inside hitsBullets", bullets);
 
-            //--==== Initialize Quit ====--
-            $("#main a#cantEven").on("click", function () {
-                console.log("Like, Start Next");
-                $('.shots').html("");
-                $('.kims').html("");
-                $("#main").html("");
-                setTimeout(function () {
-                    wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
-                }, 1000);
-            });
+        //-- Number of Ducks --
+        for (i = 0; i < totesKims; i++) {
+            $('.kims').append(duckSVG);
+        }
 
-            //--==== Play Button ====--
-            $("#main").append('<a class="button whatevs" id="wait">Omg! Like, hold on! I need to play</a>');
+        //-- Number of Bullets --
+        for (i = 0; i < bullets; i++) {
+            $('.shots').append(bulletSVG);
+        }
 
-            //--==== Initialize Continue Playing ====--
-            $("#content a#wait").on("click", function () {
-                console.log("Like, Start Next Level!");
-                $('.shots').html("");
-                $('.kims').html("");
-                $("#main").html("");
-                setTimeout(function () {
-                    wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
-                }, 1000);
-            });
+        //-- Calculating Shots Left --
+        $("#main").off("click");
+        $("#main").on("click", function () {
+
+            bullets--;
+
+            var bulletsLeft = $("svg.bullet-svg");
+            for (i = totesBullets; i > bullets; i--) {
+                $(bulletsLeft[i - 1]).css({
+                    "fill": "#333"
+                });
+            }
+
+            if (bullets === 0) {
+                $("#main").off("click");
+                $(".kim").off("click");
+                console.log("Like, you are totally out of bullets");
+            }
+
         });
-    } else {
-        //--==== Initialize Player 2 ====--
-        if (currPlayer == plrOne) {
-            $("#main").html('<a class="button" id="plr-2">Player Two - totally pay attention .. you\'re up!</a>');
-            plrOneScore = kimScore;
+    }
 
-            //--==== Score Reset - Player 2 / ====--
-            currLvl = 0;
-            currPlayer = plrTwo;
-            console.log("You should hurry before Yeezy gets home:" + currPlayer);
 
-            //--==== Player 2 Start Game ====--
-            $("#main a#plr-2").on("click", function () {
-                console.log("START");
+    //--==== Initialize Scoring ====--
+    function score(totesKims, numBullets) {
+        var totesBullets = totesKims + numBullets;
+        var bulletsLeft = totesBullets;
+        numOfKims = 0;
+
+        //--==== Quack on click ====--
+        $(".kims").one("click", function () {
+            soundManager.createSound({
+                url: 'sounds/quack.mp3'
+            }).play();
+            kimScore += 500;
+            numOfKims++;
+
+            //-- numOfKims = (kimScore / 500); --
+            $(".score").html(duckScore);
+
+            var greenDucks = $("svg.duck-svg");
+            for (i = 0; i < numOfKims; i++) {
+                $(greenDucks[i]).css({
+                    "fill": "#0f0"
+                });
+            }
+
+            //--==== CheckScore / Clear Timer ====--     
+            if (numOfKims == totesKims) {
+                clearTimeout(lvlTimer);
+                lvlComplete(totesKims, numOfKims);
+            }
+        });
+    }
+
+    function wave(totesKims, numBullets) {
+
+        for (i = 0; i < totesKims; i++) {
+            var newKim = $(singleKim);
+            $("#main").append(newKim);
+            animKim(newKim);
+        }
+        lvlTimer = setTimeout(function () {
+            lvlComplete(totesKim, numBullets);
+        }, 9000);
+
+        score(totesKim, numBullets);
+        hitsBullets(totesKims, numBullets);
+        killKim();
+    }
+
+
+    //--==== Game Winning Color ====--
+    function random_hsl_color() {
+        var hsl = "hsl(" + (Math.random() * 360) + " , 80%, 50%)";
+        return hsl;
+    }
+
+    //--==== Level Complete Message / Options ====--
+
+    function lvlComplete(numOfKims, bullets) {
+        currLvl++;
+
+        console.log(currPlayer + " is the Current Shooter");
+        if (currLvl < lvlParams.length) {
+            $("#main").html('<a class="button" id="lvlUp">FOR REALS! NEXT LEVEL!</a>');
+            $("#main").append('<a class="button whatevs" id="whatevs">Whatevs..I\'m out</a>');
+            $("#main a#lvlUp").on("click", function () {
+                console.log("Like, Start the Next Level");
                 $('.shots').html("");
                 $('.kims').html("");
                 $("#main").html("");
-                $(".score").html("0");
-                kimScore = 0;
                 setTimeout(function () {
                     wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
                 }, 1000);
+            });
+
+            //--==== Quit Message / Button ====--
+            $("#main a#whatevs").on("click", function () {
+                $("#main").html('<h3 class="really">OMG! Like, really?</h3>');
+                $("#main").append('<a href="" class="button whatevs" id="cantEven">I can\'t even</a>');
+
+                //--==== Initialize Quit ====--
+                $("#main a#cantEven").on("click", function () {
+                    console.log("Like, Start Next");
+                    $('.shots').html("");
+                    $('.kims').html("");
+                    $("#main").html("");
+                    setTimeout(function () {
+                        wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
+                    }, 1000);
+                });
+
+                //--==== Play Button ====--
+                $("#main").append('<a class="button whatevs" id="wait">Omg! Like, hold on! I need to play</a>');
+
+                //--==== Initialize Continue Playing ====--
+                $("#content a#wait").on("click", function () {
+                    console.log("Like, Start Next Level!");
+                    $('.shots').html("");
+                    $('.kims').html("");
+                    $("#main").html("");
+                    setTimeout(function () {
+                        wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
+                    }, 1000);
+                });
             });
         } else {
+            //--==== Initialize Player 2 ====--
+            if (currPlayer == plrOne) {
+                $("#main").html('<a class="button" id="plr-2">Player Two - totally pay attention .. you\'re up!</a>');
+                plrOneScore = kimScore;
 
-            //--==== Show Scores ====--
-            $("#main").html("<h1>The Winner is..</h1>");
-            $("#main").append("<h3>Player One: " + plrOneScore + "</h3>");
-            $("#main").append("<h3>Player Two: " + kimScore + "</h3>");
+                //--==== Score Reset - Player 2 / ====--
+                currLvl = 0;
+                currPlayer = plrTwo;
+                console.log("You should hurry before Yeezy gets home:" + currPlayer);
 
-            //--==== Player 1 wins ====--
-            if (plrOneScore > kimScore) {
-                setInterval(function () {
-                    $("#main").css({
-                        "background": random_hsl_color
-                    });
-                }, 100);
-                $("#main").append("<h1>PLAYER ONE WINS!</h1>");
-                soundManager.createSound({
-                    url: 'sounds/airhorn.mp3',
-                    "loops": 2
-                }).play();
-                $("#main").append(airhorn + airhorn + airhorn + airhorn + airhorn);
-                $("#main").append('<a href="" class="button" id="refresh">Click to refresh</a>');
-            }
-            //--==== Player 2 wins ====--
-            else if (kimScore > plrOneScore) {
-                setInterval(function () {
-                    $("#main").css({
-                        "background": random_hsl_color
-                    });
-                }, 100);
-                $("#main").append("<h1>PLAYER TWO WINS!</h1>");
-                soundManager.createSound({
-                    url: 'sounds/airhorn.mp3',
-                    "loops": 2
-                }).play();
-                $("#main").css({
-                    "background": random_hsl_color
+                //--==== Player 2 Start Game ====--
+                $("#main a#plr-2").on("click", function () {
+                    console.log("START");
+                    $('.shots').html("");
+                    $('.kims').html("");
+                    $("#main").html("");
+                    $(".score").html("0");
+                    kimScore = 0;
+                    setTimeout(function () {
+                        wave(lvlParams[currLvl][0], lvlParams[currLvl][1]);
+                    }, 1000);
                 });
-                $("#main").append(airhorn + airhorn + airhorn + airhorn + airhorn);
-                $("#main").append('<a href="" class="button" id="refresh">Click to refresh</a>');
-            }
-            //--==== Tie ====--
-            else {
-                $("#main").append("<h1>It's a tie. One of you step up your game!</h1>");
+            } else {
+
+                //--==== Show Scores ====--
+                $("#main").html("<h1>The Winner is..</h1>");
+                $("#main").append("<h3>Player One: " + plrOneScore + "</h3>");
+                $("#main").append("<h3>Player Two: " + kimScore + "</h3>");
+
+                //--==== Player 1 wins ====--
+                if (plrOneScore > kimScore) {
+                    setInterval(function () {
+                        $("#main").css({
+                            "background": random_hsl_color
+                        });
+                    }, 100);
+                    $("#main").append("<h1>PLAYER ONE WINS!</h1>");
+                    soundManager.createSound({
+                        url: 'sounds/airhorn.mp3',
+                        "loops": 2
+                    }).play();
+                    $("#main").append(airhorn + airhorn + airhorn + airhorn + airhorn);
+                    $("#main").append('<a href="" class="button" id="refresh">Click to refresh</a>');
+                }
+                //--==== Player 2 wins ====--
+                else if (kimScore > plrOneScore) {
+                    setInterval(function () {
+                        $("#main").css({
+                            "background": random_hsl_color
+                        });
+                    }, 100);
+                    $("#main").append("<h1>PLAYER TWO WINS!</h1>");
+                    soundManager.createSound({
+                        url: 'sounds/airhorn.mp3',
+                        "loops": 2
+                    }).play();
+                    $("#main").css({
+                        "background": random_hsl_color
+                    });
+                    $("#main").append(airhorn + airhorn + airhorn + airhorn + airhorn);
+                    $("#main").append('<a href="" class="button" id="refresh">Click to refresh</a>');
+                }
+                //--==== Tie ====--
+                else {
+                    $("#main").append("<h1>It's a tie. One of you step up your game!</h1>");
+                }
             }
         }
     }
-}
-//--====== End of Doc Ready ======--
+    //--====== End of Doc Ready ======--
 });
