@@ -1,15 +1,13 @@
-/* Global Styles */
-
 body {
-    color: #0f0;
     background: #555;
     font-family: 'Press Start 2P', cursive;
+    color: #0f0;
 }
 h1 {
-    font-family: 'Press Start 2P', cursive;
     color: #0f0;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0px #333;
     text-align: center;
-    text-shadow: 1px 1px 0px #333;
 }
 h2,
 h3,
@@ -20,66 +18,143 @@ h6 {
     font-family: 'Press Start 2P', cursive;
     font-size: 1em;
     text-align: center;
-    text-shadow: 1px 1px 0px #333;
+    text-shadow: 2px 2px 0px #333;
 }
-
-/* Body Style */
-
-#main {
-    height: 550px;
+h3.sure {
+    text-align: center;
+    margin: 12em auto 0;
+    text-shadow: 2px 2px 0px #333;
+}
+#content h2 {
+    text-align: center;
+    font-size: 4em;
+}
+@media (max-width: 640px) {
+    #content h2 {
+        font-size: 3em;
+    }
+}
+.row {
+    max-width: 1100px;
     margin: 0 auto;
-    box-shadow: 3px 3px 1px #333;
+}
+#content {
     background: #1a8fb9;
     background-image: url('../images/background.png');
     background-size: cover;
+    background-position: center 70%;
+    overflow: hidden;
+    height: 550px;
+    margin: 0 auto;
+    box-shadow: 4px 4px 2px #333;
 }
-.stats {
-    text-align: center;
-    margin-top: 1em;
+img.background {
+    position: absolute;
+    width: 880px;
+    height: 550px;
+    margin: 0 auto;
+    left: 100px;
+    transform: translateX(101px);
+    z-index: 1;
+    opacity: 0.4;
 }
-
-/* Image Style */
-
-.kim {
-    width: 75px;
+img.duck {
+    width: 100px;
     position: relative;
+    top: 90%;
+    padding: 30px;
+    background: rgba(26, 108, 185, 0.9);
     border-radius: 50%;
-    padding: 10px;
+}
+.row.scoreboard {
+    margin-top: 1em;
+    text-align: center;
 }
 svg {
-    stroke: none;
-    fill: #222;
     width: 25px;
     height: 25px;
     margin-right: 5px;
+    fill: #222;
+    stroke: none;
 }
 svg.bullet-svg {
     fill: #0f0;
-    width: auto;
+    width: auto
 }
-
-/* Button Style */
-
-.button {
-    display: block;
+a.button {
     max-width: 50%;
-    box-shadow: rgba(50, 50, 50 0.4);
+    display: block;
     margin: 10em auto 0em;
+    box-shadow: rgba(50, 50, 50, 0.4);
 }
-.whatevs {
+a.button.give-up {
     background: #FF2C10;
     margin-top: 1em;
 }
-.whatevs:hover,
-.whatevs:active,
-.whatevs:focus {
+a.button.give-up:hover,
+a.button.give-up:active,
+a.button.give-up:focus {
     background: #A51300;
 }
-#plr-2 {
+a#other-player {
     background: #F0961E;
 }
-#plr-2:hover,
-#plr-2:active,
-#plr-2:focus {
+a#other-player:hover,
+a#other-player:active,
+a#other-player:focus {
     background: #B36C0D;
+}
+a#are-you-sure {
+    margin: 10em auto 0em;
+}
+a#refresh {
+    margin-top: 3em;
+}
+img.airhorn {
+    display: inline-block;
+    margin: 0 auto;
+    -webkit-animation: spin 1.2s linear infinite;
+    -moz-animation: spin 1.2s linear infinite;
+    animation: spin 1.2s linear infinite;
+}
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Background flash */
+
+.flash {
+    -webkit-animation-name: flash-animation;
+    -webkit-animation-duration: 0.05s;
+    animation-name: flash-animation;
+    animation-duration: 0.05s;
+}
+@-webkit-keyframes flash-animation {
+    from {
+        background: initial;
+    }
+    to {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+@keyframes flash-animation {
+    from {
+        background: initial;
+    }
+    to {
+        background: rgba(255, 255, 255, 0.9);
+    }
 }

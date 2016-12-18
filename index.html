@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <!--====== META & TITLE ======-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
     <title>Kardashian Hunt</title>
+    <meta name="viewport" content="width=device-width">
 
-    <!--======= CSS LINKS ======-->
+    <!--==== Favicon ====-->
+    <link rel="icon" href="images/favicon.png">
+
+    <!--==== CSS Links ====-->
     <link rel="stylesheet" type="text/css" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!--==== Font ====-->
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" type="text/css">
 
+    <!--==== Script Links ====-->
+    <script type="text/javascript" src="soundmanager-src/script/soundmanager2.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 
 <body>
-    <!--======HEADER TITLE======-->
-    <h1>Kardashian Hunt</h1>
 
-    <!-- Row Begin -->
-    <div>
-        <div class="row">
-            <div id="main" class="small-12 columns"></div>
+    <h1>Kardashian Hunt</h1>
+    <div class="row">
+        <div id="content" class="small-12 columns">
         </div>
     </div>
-
-    <!--====== STATS & SCORE ROW ======-->
-    <div class="row stats">
+    <div class="row scoreboard">
         <div class="small-3 columns">
-            <h3>Shots Left</h3>
-            <div class="shots">
+            <h3>Shots left</h3>
+            <div class="shots-left">
             </div>
         </div>
 
         <div class="small-6 columns">
             <h3>Hits</h3>
-            <div class="kims">
+            <div class="ducks-to-shoot">
             </div>
         </div>
 
@@ -45,12 +47,8 @@
             </div>
         </div>
     </div>
-    <!-- Row End -->
 
-    <!--====== SCRIPT LINKS ======-->
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="soundmanager/script/soundmanager2.js"></script>
+
 </body>
 
 </html>
